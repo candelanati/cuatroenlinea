@@ -35,4 +35,11 @@ class myFirstTest extends TestCase
 
         $this->assertTrue(substr_count($pagina,'bg-sky-500') == 2);
     }
+
+    public function test_muchos_numeros(){
+
+        $pagina = $this->get('https://cuatroenlinea.ddev.site/jugar/123123123123123123123123123123123123123123123');
+
+        $pagina->assertStatus(200);
+    }
 }
