@@ -21,4 +21,11 @@ class myFirstTest extends TestCase
 
         $this->assertTrue(substr_count($pagina,'bg-gray-200') == 41);
     }
+
+    public function test_rojos(){
+
+        $pagina = file_get_contents('https://cuatroenlinea.ddev.site/jugar/257');
+
+        $this->assertTrue(substr_count($pagina,'bg-red-500') == 2);
+    }
 }
