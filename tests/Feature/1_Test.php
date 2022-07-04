@@ -14,4 +14,11 @@ class myFirstTest extends TestCase
 
         $pagina_cod->assertStatus(200);
     }
+
+    public function test_anda_tablero(){
+
+        $pagina = file_get_contents('https://cuatroenlinea.ddev.site/jugar/1');
+
+        $this->assertTrue(substr_count($pagina,'bg-gray-200') == 41);
+    }
 }
