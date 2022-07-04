@@ -42,4 +42,11 @@ class myFirstTest extends TestCase
 
         $pagina->assertStatus(200);
     }
+
+    public function test_proximo_juego(){
+
+        $pagina = file_get_contents('https://cuatroenlinea.ddev.site/jugar/1');
+
+        $this->assertTrue(substr_count($pagina,'hover:animate-spin') == 7);
+    }
 }
