@@ -6,7 +6,7 @@ interface InterfacePieza {
     public function getColor() : string;
 }
 
-class Piece implements InterfacePieza {
+class Pieza implements InterfacePieza {
     protected $color;    
 
     public function __construct($inputColor) {

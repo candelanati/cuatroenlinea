@@ -9,8 +9,8 @@ interface InterfaceTablero {
     public function getY () : int;
     public function limpiaTablero();
     public function hayPieza(int $x, int $y) : bool;
-    public function getPieza(int $x, int $y) : Piece;
-    public function ponerPieza(int $x, Piece $piece);
+    public function getPieza(int $x, int $y) : Pieza;
+    public function ponerPieza(int $x, Pieza $pieza);
     public function borrarPieza(int $x);
 }
 
@@ -47,15 +47,15 @@ class Tablero implements InterfaceTablero {
         return $this->board[$x][$y] != "⬜";
     }
 
-    public function getPieza(int $x, int $y) : Piece {
+    public function getPieza(int $x, int $y) : Pieza {
         return $this->board[$x][$y];
     }
 
-    public function ponerPieza(int $x, Piece $piece){
+    public function ponerPieza(int $x, Pieza $pieza){
         $x--;
         for($y = $this->getY()-1; $y >= 0; $y--){
             if(!($this->hayPieza($x, $y))){
-                $this->board[$x][$y] = $piece;
+                $this->board[$x][$y] = $pieza;
                 break;
             }
         }
@@ -71,7 +71,7 @@ class Tablero implements InterfaceTablero {
         }    
     }
 
-    public function showBoard(){
+    public function mostrarTablero(){
         print("\n\n");
         for($y = 0; $y < $this->getY(); $y++){
             for($x = 0;$x < $this->getX(); $x++){
@@ -86,4 +86,12 @@ class Tablero implements InterfaceTablero {
         print("\n\n");
     }
 }
+$tablero = new Tablero;
+$piexaR = new Pieza("🟥");
+$piexaA = new Pieza("🟦");
+
+$tablero->ponerPieza(1,$piexaR);
+$tablero->ponerPieza(1,$piexaA);
+$tablero->ponerPieza(2,$piexaR);
+$tablero->mostrarTablero();
 ?>
